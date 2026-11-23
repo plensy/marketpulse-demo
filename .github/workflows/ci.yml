@@ -23,3 +23,10 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt     # now includes dash and gunicorn
       - run: pytest -q
+
+  build-image:                                        # NEW
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t marketpulse:ci .
