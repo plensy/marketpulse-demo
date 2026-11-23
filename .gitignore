@@ -1,0 +1,17 @@
+# Python virtual environments
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+
+# Build and environment outputs
+build/
+dist/
+.env
+.env.*
