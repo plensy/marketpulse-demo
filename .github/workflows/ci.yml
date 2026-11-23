@@ -1,5 +1,9 @@
 name: CI
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore: [main]     # main is tested by release.yml
+  pull_request:
+  workflow_call:                # lets release.yml call this workflow
 
 jobs:
   lint:
@@ -21,10 +25,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt     # now includes dash and gunicorn
+      - run: pip install -r requirements.txt
       - run: pytest -q
 
-  build-image:                                        # NEW
+  docker:
     needs: test
     runs-on: ubuntu-latest
     steps:
