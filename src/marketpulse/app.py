@@ -22,7 +22,7 @@ server = app.server  # used by gunicorn
 
 app.layout = html.Div(
     [
-        html.H1(f"MarketPulse {VERSION}"),
+        html.H1(f"MarketPulse Version {VERSION}"),
         html.P(f"Last return: {simple_returns(prices)[-1]:+.2%}"),
         html.P(f"Max drawdown: {max_drawdown(prices):.2%}"),
     ]
